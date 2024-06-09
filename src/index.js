@@ -98,20 +98,32 @@ for ( let i=0; i<users_familyMovchkos.length; i++) {
   }
 }
 
-function Component1(movchkoParam){
+function Component(movchkoParam){
   return(
     <>
-    <h1> {movchkoParam.param.mainInfo.name} {movchkoParam.param.mainInfo.surname} набрав {movchkoParam.param.mainInfo.result} </h1>
-    <h2> {movchkoParam.param.mainInfo.value_result} </h2>
+    <h1> {movchkoParam.param.mainInfo.name} {movchkoParam.param.mainInfo.surname} набрав {movchkoParam.param.mainInfo.result} - {movchkoParam.param.mainInfo.value_result} </h1>
     </>
   )
 }
-function App() {
-  return (
+
+function Component1(movchkoParam){
+  return(
+    <>
     <div>
-      <Component1 param={users_familyMovchkos[1]} />
+    <Component param={users_familyMovchkos[0]} />
+    <Component param={users_familyMovchkos[1]} />
+    <Component param={users_familyMovchkos[2]} />
     </div>
-  );
+    </>
+  )
+}
+
+function App() {
+    return (
+        <div>
+        <Component1 param={users_familyMovchkos} />
+        </div>
+    )
 }
 
 
