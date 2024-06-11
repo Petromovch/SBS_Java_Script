@@ -1,0 +1,35 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+.logo{
+
+}
+.logo_text{
+
+}
+.logo_image{
+
+}
+.buttons{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-start;
+}
+.sign_in_container{
+
+}
+.sign_up_container{
+
+}
+.sign_in_button{
+
+}
+.sign_up_button{
+
+}
+

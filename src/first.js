@@ -40,6 +40,7 @@ let users_familyMovchkos = [
             name : "Petro",
             surname : "Movchko",
             result : null,
+            value_result : "",
         },
     },
     {
@@ -53,6 +54,7 @@ let users_familyMovchkos = [
             name : "Roman",
             surname : "Movchko",
             result : null,
+            value_result : "",
         },
     },
     {
@@ -66,12 +68,12 @@ let users_familyMovchkos = [
             name : "Sviat",
             surname : "Movchko",
             result : null,
+            value_result : "",
         },
     },
-]
-
-
-let correctAnswers = [
+  ]
+  
+  let correctAnswers = [
     {
         answer : 12,
         mark : 1,
@@ -100,49 +102,46 @@ let correctAnswers = [
         answer : 4,
         mark : 3,
     },
-]
-
-function calculateResult (answers,correctAnswers) {
+  ]
+  
+  function calculateResult (answers,correctAnswers) {
     let sum = 0
     for ( let i=0; i<answers.length; i++) {
-        if ( correctAnswers[i].answer == answers[i]) {
+        if ( correctAnswers[i].answer === answers[i]) {
             sum += correctAnswers[i].mark
         }
     }
     return sum
-}
-function addContastant(name,surname,answers,age) {
-    let Movchko = {
-        answers : answers,
-        age : age,
-        mainInfo : {
-        name : name,
-        surname : surname,
-        result : null,
-        },
-    }
-    return users_familyMovchkos.push(Movchko)
-}
-addContastant("Vasil", "Movchko",[12,39,74,74,2,53,1],10)
-
-function smartestMovcko(result) {
-    let max = 0
-    let integer = 0
-    for ( let i=0; i<result.length; i++){
-        if ( result[i] > max) {
-            max = result[i]
-            integer = i
-        }
-    }
-    return users_familyMovchkos[integer].mainInfo
-}
-
-let results = [ ]
-
-for ( let i=0; i<users_familyMovchkos.length; i++) {
+  }
+  
+  for ( let i=0; i<users_familyMovchkos.length; i++) {
     users_familyMovchkos[i].mainInfo.result= calculateResult(users_familyMovchkos[i].answers,correctAnswers)
-    results.push(users_familyMovchkos[i].mainInfo.result)
-    console.log(users_familyMovchkos[i].mainInfo);
-}
-console.log("Найрозумніший з Мовчків:");
-console.log(smartestMovcko(results));
+    if (users_familyMovchkos[i].mainInfo.result>=7){
+      users_familyMovchkos[i].mainInfo.value_result = "Хороший результат!"
+    }
+    else{
+      users_familyMovchkos[i].mainInfo.value_result = "Поганий результат!"
+    }
+  }
+  
+  function Component(props){
+    let callback= ( ) => alert(props.param.mainInfo.value_result)
+    return(
+      <>
+      <div className={style.Mov_div}>
+      <h1 className={style.Movchko_h1_style} onClick={callback}> {props.param.mainInfo.name}  {props.param.mainInfo.surname} </h1>   <h2 className={style.Movchko_h2_style}> набрав {props.param.mainInfo.result} </h2>
+      </div>
+      </>
+    )
+  }
+  function Component1(props){
+    let Movchky = users_familyMovchkos.map( (user) => (<Component param={user}/>));
+    return(
+      <>
+      <div>
+      <h1 className={style.results}>Результати Сім'ї Мовчків:</h1>
+      {Movchky}
+      </div>
+      </>
+    )
+  }
