@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
+import style from "./indexStyles.module.css";
 
 let users_familyMovchkos = [
   {
@@ -98,21 +99,25 @@ for ( let i=0; i<users_familyMovchkos.length; i++) {
   }
 }
 
-function Component(movchkoParam){
+function Component(props){
+  function callback( ){
+    alert(props.param.mainInfo.value_result)
+  }
   return(
     <>
-    <h1> {movchkoParam.param.mainInfo.name} {movchkoParam.param.mainInfo.surname} набрав {movchkoParam.param.mainInfo.result} - {movchkoParam.param.mainInfo.value_result} </h1>
+    <div className={style.Mov_div}>
+    <h1 className={style.Movchko_h1_style} onClick={callback}> {props.param.mainInfo.name}  {props.param.mainInfo.surname} </h1>   <h2 className={style.Movchko_h2_style}> набрав {props.param.mainInfo.result} </h2>
+    </div>
     </>
   )
 }
-
-function Component1(movchkoParam){
+function Component1(props){
+  let Movchky = users_familyMovchkos.map( (user) => (<Component param={user}/>));
   return(
     <>
     <div>
-    <Component param={users_familyMovchkos[0]} />
-    <Component param={users_familyMovchkos[1]} />
-    <Component param={users_familyMovchkos[2]} />
+    <h1 className={style.results}>Результати Сім'ї Мовчків:</h1>
+    {Movchky}
     </div>
     </>
   )
@@ -121,7 +126,7 @@ function Component1(movchkoParam){
 function App() {
     return (
         <div>
-        <Component1 param={users_familyMovchkos} />
+        <Component1 param={users_familyMovchkos}/>
         </div>
     )
 }

@@ -1,0 +1,22 @@
+.Movchko_h1_style{
+    color: green;
+    font-style: italic;
+    font-family: emoji;
+    padding-right: 20px;
+}
+
+.Movchko_h2_style{
+    color: red;
+    font-style: normal;
+    font-family: emoji;
+
+}
+.results{
+    color : lightblue;
+    text-decoration: underline;
+}
+.Mov_div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
