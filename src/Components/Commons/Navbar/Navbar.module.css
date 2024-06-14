@@ -4,12 +4,14 @@
     align-items: center;
     width: 100%;
     justify-content: space-between;
+    background-color: rgba(25, 230, 25, 0.514);
+    padding: 20px;
 }
 .logo{
 
 }
 .logo_text{
-
+    font-size: 40px
 }
 .logo_image{
 
@@ -19,17 +21,31 @@
     flex-direction: row-reverse;
     align-items: center;
     justify-content: flex-start;
+    margin-right: 30px;
+}
+.sign_container{
+    display: flex; 
 }
 .sign_in_container{
-
 }
 .sign_up_container{
-
+}
+.sign_button{
+    color: white;
+    background-color: rgba(93, 9, 9, 0.8);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 7px;
+    font-size: 25px;
+    padding: 5px 15px;
+}
+.sign_button:hover {
+    transition: 0.1s;
+    background-color: rgba(32, 2, 2, 0.8);
 }
 .sign_in_button{
-
 }
 .sign_up_button{
-
+    margin-right: 20px;
 }
 

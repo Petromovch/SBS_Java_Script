@@ -11,11 +11,11 @@ let Navbar =()=>{
                 </div>
             </div>
             <div className={style.buttons}>
-                <div className={style.sign_in_container}>
-                    <button className={style.sign_in_button}>SIGN IN</button>
+                <div className={style.sign_container  + " " + style.sign_in_button}>
+                    <button className={style.sign_button + " " + style.sign_in_button}>SIGN IN</button>
                 </div>
-                <div className={style.sigh_up_container}>
-                    <button className={style.sign_up_button}>SIGN UP</button>
+                <div className={style.sign_container  + " " + style.sign_up_button}>
+                    <button className={style.sign_button + " " + style.sign_up_button}>SIGN UP</button>
                 </div>
             </div>
         </div>
